@@ -1,0 +1,48 @@
+@import "../style/colors.scss";
+
+$left-padding: 10px;
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 15vw;
+  background-color: $middle-gray;
+  color: $bright-gray;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      font-size: 22px;
+      background-color: $middle-blue;
+    }
+  }
+
+  .login {
+    display: flex;
+    align-items: center;
+    width: calc(100% - $left-padding);
+    padding: 15px 0 $left-padding 15px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    .item {
+      width: calc(100% - $left-padding);
+      padding: 10px 0 $left-padding 10px;
+      margin-left: 5px;
+    }
+    // .item::before {
+    //   content: 'O';
+    //   margin-right: 5px;
+    // }
+  }
+}
