@@ -1,4 +1,4 @@
-export default [
+const items = [
     {
         label: 'Заказчики',
         link: 'customers',
@@ -8,3 +8,5 @@ export default [
         link: 'providers',
     }
 ]
+
+export default items;

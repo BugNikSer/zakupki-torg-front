@@ -1,4 +1,5 @@
 @import "../style/colors.scss";
+@import "../style/sizes.scss";
 
 $left-padding: 10px;
 
@@ -6,7 +7,7 @@ $left-padding: 10px;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 15vw;
+  width: $menu-width;
   background-color: $middle-gray;
   color: $bright-gray;
 
@@ -27,8 +28,8 @@ $left-padding: 10px;
   .login {
     display: flex;
     align-items: center;
-    width: calc(100% - $left-padding);
-    padding: 15px 0 $left-padding 15px;
+    width: calc(100% - #{$left-padding});
+    padding: 20px 0 $left-padding 20px;
   }
 
   a {
@@ -36,13 +37,20 @@ $left-padding: 10px;
     text-decoration: none;
 
     .item {
-      width: calc(100% - $left-padding);
+      display: flex;
+      width: calc(100% - #{$left-padding});
       padding: 10px 0 $left-padding 10px;
-      margin-left: 5px;
+      transition-property: background-color;
+      transition-duration: 0.2s;
+      transition-timing-function: linear;
+
+      span {
+        margin-right: 5px;
+      }
     }
-    // .item::before {
-    //   content: 'O';
-    //   margin-right: 5px;
-    // }
+
+    .item:hover {
+      background-color: $dark-gray;
+    }
   }
 }
