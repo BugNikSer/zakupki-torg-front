@@ -6,6 +6,10 @@ const items = [
     {
         label: 'Поставщики',
         link: 'providers',
+    },
+    {
+        label: 'Аукционы',
+        link: 'auctions',
     }
 ]
 

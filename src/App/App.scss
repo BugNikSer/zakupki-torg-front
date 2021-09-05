@@ -7,6 +7,15 @@ body {
     margin: 0;
 }
 
+input {
+    border: none;
+    border-radius: 4px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
 .app {
     display: flex;
     width: 100vw;
@@ -14,7 +23,26 @@ body {
     overflow: hidden;
 }
 
+.scrollable {
+    overflow-y: auto;
+    $default_size_px: 4px;
+    border-radius: 4px;
+
+    &::-webkit-scrollbar {
+        width: $default_size_px * 2;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: rgba($middle-blue, $alpha: 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $middle-blue;
+        border-radius: $default_size_px;
+    }
+}
+
 .content {
     width: calc(100vw - #{$menu-width});
+    height: 100vh;
     background-color: $bright-gray;
 }

@@ -1,0 +1,14 @@
+@import '../style/colors.scss';
+@import '../style/sizes.scss';
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: $bright-gray;
+    font-size: 24px;
+    width: calc(100% - #{$content-left-padding});
+    padding-left: $content-left-padding;
+    height: $header-height;
+    background-color: $bright-blue;
+}

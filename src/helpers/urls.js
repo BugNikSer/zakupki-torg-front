@@ -6,3 +6,5 @@ export const getCustomersListUrl = () => `${server}/customers`;
 export const getCustomerUrl = (id) => `${getCustomersListUrl()}/${id}`;
 export const getProvidersListUrl = () => `${server}/providers`;
 export const getProviderUrl = (id) => `${getProvidersListUrl()}/${id}`;
+export const getAuctionsListUrl = () => `${server}/auctions`;
+export const getAuctionUrl = (id) => `${getAuctionsListUrl()}/${id}`;

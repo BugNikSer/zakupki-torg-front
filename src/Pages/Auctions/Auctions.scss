@@ -1,0 +1,14 @@
+@import '../../style/colors.scss';
+
+.auction {
+    border-collapse: collapse;
+
+    tr {
+        td {
+            &:first-child {
+                text-align: right;
+                color: $bright-blue;
+            }
+        }
+    }
+}

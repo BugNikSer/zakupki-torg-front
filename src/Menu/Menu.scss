@@ -19,8 +19,8 @@ $left-padding: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 0;
-      font-size: 22px;
+      height: $header-height;
+      font-size: 26px;
       background-color: $middle-blue;
     }
   }
@@ -47,10 +47,10 @@ $left-padding: 10px;
       span {
         margin-right: 5px;
       }
-    }
 
-    .item:hover {
-      background-color: $dark-gray;
+      &:hover {
+        background-color: $dark-gray;
+      }
     }
   }
 }
