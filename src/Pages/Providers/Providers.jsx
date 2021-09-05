@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SearchOutline, BackspaceOutline } from 'react-ionicons';
 import FetchContainer from '../../helpers/FetchContainer';
 import { getProvidersListUrl } from '../../helpers/urls';
 
-const Providers = ({ data }) => {
+const Providers = ({ data, state: { titleInput, handleTitleInput } }) => {
     const renderProvider = ({ _id, title }) => {
         return (
             <tr>
@@ -27,11 +27,20 @@ const Providers = ({ data }) => {
                     <thead>
                         <tr>
                             <td>
-                                <input type='text' />
+                                <input
+                                    value={titleInput}
+                                    onChange={handleTitleInput}
+                                    type='text'
+                                />
                             </td>
                             <td>
-                                <SearchOutline />
-                                <BackspaceOutline />
+                                <BackspaceOutline
+                                    onClick={() => {
+                                        handleTitleInput({
+                                            target: { value: '' },
+                                        });
+                                    }}
+                                />
                             </td>
                         </tr>
                     </thead>
@@ -42,6 +51,22 @@ const Providers = ({ data }) => {
     );
 };
 
-export default () => (
-    <FetchContainer Component={Providers} url={getProvidersListUrl()} />
-);
+const ProvidersContainer = () => {
+    const [titleInput, setTitleInput] = useState('');
+
+    const handleTitleInput = ({ target }) => {
+        setTitleInput(target.value);
+    };
+
+    const getFilters = () => (titleInput === '' ? '' : `?title=${titleInput}`);
+
+    return (
+        <FetchContainer
+            Component={Providers}
+            url={getProvidersListUrl() + getFilters()}
+            state={{ titleInput, handleTitleInput }}
+        />
+    );
+};
+
+export default ProvidersContainer;

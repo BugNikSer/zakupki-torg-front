@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SearchOutline, BackspaceOutline } from 'react-ionicons';
+import { BackspaceOutline } from 'react-ionicons';
 import FetchContainer from '../../helpers/FetchContainer';
 import { getCustomersListUrl } from '../../helpers/urls';
 
-const Customers = ({ data }) => {
+const Customers = ({ data, state: { titleInput, handleTitleInput } }) => {
     const renderCustomer = ({ _id, title }) => {
         return (
             <tr key={`customer_row_${_id}`}>
@@ -17,18 +17,29 @@ const Customers = ({ data }) => {
     };
 
     return (
-        <section className="page">
-            <div className="head">Заказчики являются организаторами аукционов</div>
-            <div className="scrollable">
-                <table className="content-container">
+        <section className='page'>
+            <div className='head'>
+                Заказчики являются организаторами аукционов
+            </div>
+            <div className='scrollable'>
+                <table className='content-container'>
                     <thead>
                         <tr>
                             <td>
-                                <input type="text" />
+                                <input
+                                    value={titleInput}
+                                    onChange={handleTitleInput}
+                                    type='text'
+                                />
                             </td>
                             <td>
-                                <SearchOutline />
-                                <BackspaceOutline />
+                                <BackspaceOutline
+                                    onClick={() => {
+                                        handleTitleInput({
+                                            target: { value: '' },
+                                        });
+                                    }}
+                                />
                             </td>
                         </tr>
                     </thead>
@@ -39,6 +50,22 @@ const Customers = ({ data }) => {
     );
 };
 
-export default () => (
-    <FetchContainer Component={Customers} url={getCustomersListUrl()} />
-);
+const CustomersContainer = () => {
+    const [titleInput, setTitleInput] = useState('');
+
+    const handleTitleInput = ({ target }) => {
+        setTitleInput(target.value);
+    };
+
+    const getFilters = () => (titleInput === '' ? '' : `?title=${titleInput}`);
+
+    return (
+        <FetchContainer
+            Component={Customers}
+            url={getCustomersListUrl() + getFilters()}
+            state={{ titleInput, handleTitleInput }}
+        />
+    );
+};
+
+export default CustomersContainer;
