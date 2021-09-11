@@ -11,7 +11,7 @@ const AuctionDetail = ({ data }) => {
                 <tbody>
                     <tr>
                         <td>Лот:</td>
-                        <td>{data._id}</td>
+                        <td>{data.id}</td>
                     </tr>
                     <tr>
                         <td>Процедура:</td>

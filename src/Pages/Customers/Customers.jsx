@@ -5,11 +5,11 @@ import FetchContainer from '../../helpers/FetchContainer';
 import { getCustomersListUrl } from '../../helpers/urls';
 
 const Customers = ({ data, state: { titleInput, handleTitleInput } }) => {
-    const renderCustomer = ({ _id, title }) => {
+    const renderCustomer = ({ id, title }) => {
         return (
-            <tr key={`customer_row_${_id}`}>
+            <tr key={`customer_row_${id}`}>
                 <td>
-                    <Link to={`/customers/${_id}`}>{title}</Link>
+                    <Link to={`/customers/${id}`}>{title}</Link>
                 </td>
                 <td></td>
             </tr>

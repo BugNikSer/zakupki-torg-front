@@ -5,11 +5,11 @@ import { getCustomerUrl } from '../../helpers/urls';
 import FetchContainer from '../../helpers/FetchContainer';
 
 const CustomerDetail = ({ data }) => {
-    const renderAuction = ({ _id, procedure, budget }) => {
+    const renderAuction = ({ id, procedure, budget }) => {
         return (
             <tr>
                 <td>
-                    <Link to={`/auctions/${_id}`}>{_id}</Link>
+                    <Link to={`/auctions/${id}`}>{id}</Link>
                 </td>
                 <td>{budget}</td>
                 <td>{procedure}</td>

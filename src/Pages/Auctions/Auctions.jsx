@@ -6,11 +6,11 @@ import { getAuctionsListUrl } from '../../helpers/urls';
 import './Auctions.scss';
 
 const Auctions = ({ data }) => {
-    const renderAuction = ({ _id, customerId, procedure, budget, customer }) => {
+    const renderAuction = ({ id, customerId, procedure, budget, customer }) => {
         return (
             <tr>
                 <td>
-                    <Link to={`/auctions/${_id}`}>{_id}</Link>
+                    <Link to={`/auctions/${id}`}>{id}</Link>
                 </td>
                 <td>{budget}</td>
                 <td>{procedure}</td>

@@ -5,11 +5,11 @@ import FetchContainer from '../../helpers/FetchContainer';
 import { getProvidersListUrl } from '../../helpers/urls';
 
 const Providers = ({ data, state: { titleInput, handleTitleInput } }) => {
-    const renderProvider = ({ _id, title }) => {
+    const renderProvider = ({ id, title }) => {
         return (
             <tr>
                 <td>
-                    <Link to={`/providers/${_id}`}>{title}</Link>
+                    <Link to={`/providers/${id}`}>{title}</Link>
                 </td>
                 <td></td>
             </tr>

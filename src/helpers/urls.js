@@ -1,4 +1,4 @@
-const server = 'http://localhost:3000';
+const server = 'http://127.0.0.1:3001/rest';
 
 export const getUsersListUrl = () => `${server}/users`;
 export const getUserUrl = (id) => `${server}/users/${id}`;
